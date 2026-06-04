@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@400..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  
+  --color-brand-red: #8B0000;
+  --color-brand-red-dark: #660000;
+  --color-brand-red-light: #B22222;
+  
+  /* Core brand black colors shifted to pure white & warm light-grey backgrounds for the layout */
+  --color-brand-black: #ffffff;
+  --color-brand-black-dark: #fbfbfb;
+  --color-brand-gray-light: #f3f4f6;
+  --color-brand-gray-medium: #e5e7eb;
+  
+  /* Redefine zinc colors for smooth borders & card containers in light mode */
+  --color-zinc-950: #ffffff;
+  --color-zinc-900: #e4e4e7;
+  --color-zinc-800: #d4d4d8;
+  --color-zinc-700: #a1a1aa;
+  --color-zinc-650: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-500: #3f3f46;
+  --color-zinc-400: #27272a;
+  
+  /* Override default gray variables so text components automatically transition */
+  --color-gray-300: #1f2937; /* Dark slate */
+  --color-gray-400: #4b5563; /* Charcoal */
+  --color-gray-500: #6b7280; /* Neutral gray */
+  
+  --color-zinc-300: #1f2937; /* Dark slate */
+  --color-zinc-400: #3f3f46; /* Charcoal */
+}
+
+/* Webkit Scrollbar styled for the premium white-red sport theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f4f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #8B0000;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B22222;
+}
+
+/* Base body stylings with clean light canvas and dark charcoal text */
+body {
+  background-color: #fbfbfb;
+  color: #1f2937;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Grid overlay for a premium gym ring cage styling, adapted with light red points */
+.mesh-bg {
+  background-image: 
+    radial-gradient(rgba(139, 0, 0, 0.05) 1px, transparent 0),
+    radial-gradient(rgba(139, 0, 0, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+/* Light mode red blur glow background */
+.blur-glow {
+  background: radial-gradient(circle, rgba(139, 0, 0, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* Global Typography High Contrast Rules */
+h1, h2, h3, h4, h5, h6 {
+  color: #111827 !important; /* Dark Slate Gray */
+}
+
+/* Keep headers white inside buttons, red containers, gradients, or special flags */
+.bg-brand-red h1, .bg-brand-red h2, .bg-brand-red h3, .bg-brand-red h4, .bg-brand-red h5, .bg-brand-red h6,
+.bg-brand-red-dark h1, .bg-brand-red-dark h2, .bg-brand-red-dark h3, .bg-brand-red-dark h4, .bg-brand-red-dark h5, .bg-brand-red-dark h6,
+.bg-gradient-to-r h1, .bg-gradient-to-r h2, .bg-gradient-to-r h3, .bg-gradient-to-r h4, .bg-gradient-to-r h5, .bg-gradient-to-r h6,
+.bg-red-950 h1, .bg-red-950 h2, .bg-red-950 h3, .bg-red-950 h4, .bg-red-950 h5, .bg-red-950 h6,
+button h1, button h2, button h3, button h4, button h5, button h6,
+.keep-white-text h1, .keep-white-text h2, .keep-white-text h3, .keep-white-text h4, .keep-white-text h5, .keep-white-text h6,
+[className*="text-rose-"] h1, [className*="text-rose-"] h2,
+[class*="text-rose-"] h1, [class*="text-rose-"] h2,
+[className*="text-red-"] h1, [className*="text-red-"] h2,
+[class*="text-red-"] h1, [class*="text-red-"] h2,
+[class*="bg-red-"] h1, [class*="bg-red-"] h2, [class*="bg-red-"] h3, [class*="bg-red-"] h4 {
+  color: #ffffff !important;
+}
+
+/* Generic .text-white classes become dark zinc-900 unless they are inside red, black-button, or dark background elements */
+main .text-white:not(
+  .bg-brand-red *, 
+  .bg-brand-red-dark *, 
+  .bg-gradient-to-r *, 
+  .bg-gradient-to-b *,
+  .bg-red-950 *, 
+  button *, 
+  a *,
+  .keep-white-text *,
+  [class*="bg-red"] *
+) {
+  color: #111827 !important;
+}
+
+/* Adjust secondary elements inside list columns or badges for correct light-contrast view */
+.text-zinc-400:not(.bg-brand-red *, .bg-gradient-to-r *, button *) {
+  color: #4b5563 !important;
+}
+.text-gray-400:not(.bg-brand-red *, .bg-gradient-to-r *, button *) {
+  color: #4b5563 !important;
+}
